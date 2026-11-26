@@ -1,0 +1,8 @@
+{
+  "name": "Joe Huber's Family Farm & Restaurant",
+  "short_name": "Joe Huber's",
+  "icons": [{ "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }],
+  "theme_color": "#29201a",
+  "background_color": "#f8f4ec",
+  "display": "browser"
+}

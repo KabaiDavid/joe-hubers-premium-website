@@ -1,0 +1,23 @@
+# Old WordPress URLs → new pages (keeps search rankings and bookmarks working)
+/about-us        /our-story          301
+/about-us/       /our-story          301
+/contact-us      /contact            301
+/contact-us/     /contact            301
+/barnyard        /farm#barnyard      301
+/barnyard/       /farm#barnyard      301
+/farm-market     /market             301
+/farm-market/    /market             301
+/special-events  /events             301
+/special-events/ /events             301
+/reception-menu  /weddings#menu      301
+/reception-menu/ /weddings#menu      301
+/vendors-list    /weddings#vendors   301
+/vendors-list/   /weddings#vendors   301
+/joes-to-go      /menu#carryout      301
+/joes-to-go/     /menu#carryout      301
+/kids-menu       /menu#kids          301
+/kids-menu/      /menu#kids          301
+/privacy-policy  /privacy            301
+/privacy-policy/ /privacy            301
+/website-analytics  /privacy         301
+/website-analytics/ /privacy         301
