@@ -6,18 +6,21 @@
 
 /* ---------- Hero entrance (CSS only, so it never waits for JS) ---------- */
 @keyframes rise { from { opacity: 0; transform: translate3d(0, 26px, 0); } to { opacity: 1; transform: none; } }
+/* Starts at near-zero (not zero) opacity so the browser counts the first paint for LCP. */
+@keyframes enter { from { opacity: 0.01; transform: translate3d(0, 22px, 0); } to { opacity: 1; transform: none; } }
+@keyframes line-in { from { opacity: 0.01; transform: translate3d(0, 40%, 0); } to { opacity: 1; transform: none; } }
 @keyframes line-up { from { transform: translate3d(0, 108%, 0); } to { transform: none; } }
 @keyframes settle { from { transform: scale(1.12); } to { transform: scale(1); } }
 @keyframes kenburns { from { transform: scale(1.02); } to { transform: scale(1.12); } }
 @keyframes bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-.hero-in { animation: rise 1.2s var(--ease-out) both; animation-delay: calc(0.25s + var(--h, 0) * 0.12s); }
+.hero-in { animation: enter 1.2s var(--ease-out) both; animation-delay: calc(0.1s + var(--h, 0) * 0.1s); }
 .hero-title .line { display: block; overflow: hidden; padding: 0 0.14em 0.16em; margin: 0 -0.14em -0.16em; }
-.hero-title .line > span { display: inline-block; animation: line-up 1.3s var(--ease-out) both; }
-.hero-title .line:nth-child(1) > span { animation-delay: 0.35s; }
-.hero-title .line:nth-child(2) > span { animation-delay: 0.48s; }
-.page-hero .hero-title { animation: rise 1.3s var(--ease-out) both; animation-delay: 0.38s; }
+.hero-title .line > span { display: inline-block; animation: line-in 1.3s var(--ease-out) both; }
+.hero-title .line:nth-child(1) > span { animation-delay: 0.15s; }
+.hero-title .line:nth-child(2) > span { animation-delay: 0.28s; }
+.page-hero .hero-title, .page-head .hero-title { animation: enter 1.3s var(--ease-out) both; animation-delay: 0.38s; }
 
 /* ---------- Homepage hero ---------- */
 .hero {
@@ -201,7 +204,7 @@
   padding: 1.7rem 0;
   border-top: 1px solid var(--line);
 }
-.dish__n { grid-row: span 2; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--brass); padding-top: 0.7rem; font-weight: 600; }
+.dish__n { grid-row: span 2; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--brass-text); padding-top: 0.7rem; font-weight: 600; }
 .dish__name { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.9rem); line-height: 1.05; margin-bottom: 0.5rem; transition: color 0.4s, transform 0.6s var(--ease-out); }
 .dish:hover .dish__name { color: var(--barn); transform: translateX(6px); }
 .dish__line { max-width: 44ch; margin: 0; }
@@ -339,7 +342,7 @@
 .barnyard__copy .lead { margin-bottom: 2rem; max-width: 34rem; }
 .attractions { border-top: 1px solid var(--line); margin-bottom: 1.4rem; }
 .attractions li { display: grid; grid-template-columns: 2.6rem 1fr; padding: 1rem 0; border-bottom: 1px solid var(--line); }
-.attractions__n { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; color: var(--brass); padding-top: 0.35rem; }
+.attractions__n { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; color: var(--brass-text); padding-top: 0.35rem; }
 .attractions strong { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 1.3rem; line-height: 1.25; }
 .attractions .muted { font-size: 0.95rem; }
 .barnyard__copy > .small { margin-bottom: 2rem; }
@@ -395,7 +398,7 @@
   padding: 1.6rem 0;
   transition: padding 0.6s var(--ease-out), color 0.4s;
 }
-.index__n { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--brass); }
+.index__n { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; color: var(--brass-text); }
 .index__title { font-family: var(--font-display); font-size: clamp(2rem, 4.6vw, 4.2rem); line-height: 1; }
 .index__text { grid-column: 2 / -1; font-size: 0.96rem; max-width: 46ch; }
 .index__meta { grid-column: 2 / -1; color: var(--text-muted); }
@@ -471,7 +474,7 @@
 }
 .shelf { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); margin-bottom: 2.5rem; }
 .shelf li { padding: 1.8rem 0; border-bottom: 1px solid var(--line); display: grid; gap: 0.6rem; }
-.shelf__n { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; color: var(--brass); }
+.shelf__n { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; color: var(--brass-text); }
 .shelf p { margin: 0; max-width: 34ch; }
 @media (min-width: 700px) {
   .shelf { grid-template-columns: repeat(2, 1fr); }
@@ -790,4 +793,7 @@
     background:
       linear-gradient(180deg, rgba(20, 16, 12, 0.55) 0%, rgba(20, 16, 12, 0.35) 30%, rgba(20, 16, 12, 0.55) 55%, rgba(20, 16, 12, 0.92) 100%);
   }
+}
+@media (min-width: 900px) {
+  .split .mosaic { grid-template-columns: repeat(2, 1fr); }
 }

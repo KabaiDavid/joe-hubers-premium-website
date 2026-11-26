@@ -45,7 +45,7 @@ export default function Restaurant() {
         <div className="wrap split">
           <div className="split__media">
             <div className="frame graded" data-reveal="clip">
-              <Img name="hall-autumn" alt="A dining hall with long tables under wooden beams and chandeliers" sizes="(min-width: 900px) 50vw, 100vw" />
+              <Img name="entrance-sign" alt="The stone Joe Huber's Family Farm & Restaurant sign at the entrance" sizes="(min-width: 900px) 50vw, 100vw" />
             </div>
           </div>
           <div className="split__copy">
@@ -98,7 +98,7 @@ export default function Restaurant() {
             <div className="frame graded zoom" data-reveal="clip" style={{ ['--d' as string]: 120 }}>
               <Img name="chicken-salad" alt="Country fried chicken salad" sizes="(min-width: 900px) 33vw, 50vw" />
             </div>
-            <div className="frame graded zoom wide" data-reveal="clip" style={{ ['--d' as string]: 240 }}>
+            <div className="frame graded zoom" data-reveal="clip" style={{ ['--d' as string]: 240 }}>
               <Img name="lakeside-cocktail" alt="A cocktail on a table overlooking the lake" sizes="(min-width: 900px) 33vw, 100vw" position="50% 60%" />
             </div>
           </div>

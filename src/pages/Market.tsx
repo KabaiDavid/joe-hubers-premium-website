@@ -63,7 +63,7 @@ export default function Market() {
               </li>
             ))}
           </ol>
-          <div className="mosaic" style={{ marginTop: '3rem' }}>
+          <div className="mosaic mosaic--3" style={{ marginTop: '3rem' }}>
             <div className="frame wide graded zoom" data-reveal="clip">
               <Img name="kids-hay-bales" alt="Children on hay bales among pumpkins and gourds" sizes="(min-width: 900px) 50vw, 100vw" />
             </div>
@@ -73,8 +73,8 @@ export default function Market() {
             <div className="frame graded zoom" data-reveal="clip" style={{ ['--d' as string]: 240 }}>
               <Img name="girl-candy-apple" alt="A girl with a caramel apple" sizes="(min-width: 900px) 25vw, 50vw" />
             </div>
-            <div className="frame wide graded zoom" data-reveal="clip" style={{ ['--d' as string]: 360 }}>
-              <Img name="fall-in-love-apples" alt="Caramel apples beneath a “Fall in Love” sign" sizes="(min-width: 900px) 50vw, 100vw" position="50% 70%" />
+            <div className="frame graded zoom" data-reveal="clip" style={{ ['--d' as string]: 360 }}>
+              <Img name="fall-in-love-apples" alt="Caramel apples beneath a “Fall in Love” sign" sizes="(min-width: 900px) 33vw, 50vw" position="50% 70%" />
             </div>
           </div>
         </div>

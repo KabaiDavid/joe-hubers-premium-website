@@ -27,9 +27,9 @@ export default function Story() {
           </>
         }
         intro="A stroll down memory lane: how a family from Baden-Baden became Joe Huber’s Family Farm & Restaurant."
-        image="tractor-golden-hour"
-        alt="A red tractor in golden evening light on the Huber farm"
-        caption="The farm at golden hour"
+        image="barn-tractor-lane"
+        alt="A vintage red tractor on the lane in front of the red barn and silo"
+        caption="The lane by the barn"
       />
 
       <section className="section tone-ivory">

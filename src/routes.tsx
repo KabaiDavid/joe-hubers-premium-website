@@ -98,7 +98,7 @@ export const ROUTES: RouteDef[] = [
 export const NOT_FOUND: RouteDef = {
   path: '*',
   title: "Page not found | Joe Huber's",
-  description: 'This page could not be found.',
+  description: 'This page could not be found. It may have moved when the Joe Huber’s website was rebuilt. Head back to the farm or view the menu.',
   lightHeader: true,
   ...page(() => import('./pages/NotFound')),
 };

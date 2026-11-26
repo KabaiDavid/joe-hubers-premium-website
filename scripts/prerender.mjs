@@ -8,7 +8,28 @@ import { pathToFileURL } from 'node:url';
 const DIST = path.resolve('dist');
 const SITE_URL = 'https://joehubers.com';
 const ssr = await import(pathToFileURL(path.resolve('dist-ssr/entry-server.js')).href);
-const template = await fs.readFile(path.join(DIST, 'index.html'), 'utf8');
+let template = await fs.readFile(path.join(DIST, 'index.html'), 'utf8');
+
+// Inline the stylesheet (~11 KB gzipped) so first paint needs no extra request.
+template = await (async () => {
+  const m = template.match(/<link rel="stylesheet"[^>]*href="(\/assets\/[^"]+\.css)"[^>]*>/);
+  if (!m) return template;
+  const css = await fs.readFile(path.join(DIST, m[1]), 'utf8');
+  return template.replace(m[0], () => `<style>${css}</style>`);
+})();
+
+// Preload the two faces every page paints above the fold.
+const assets = await fs.readdir(path.join(DIST, 'assets'));
+const fontPreloads = [
+  /^libre-caslon-display-latin-400-normal-.*\.woff2$/,
+  /^libre-caslon-text-latin-400-normal-.*\.woff2$/,
+  /^libre-caslon-text-latin-400-italic-.*\.woff2$/,
+  /^hanken-grotesk-latin-wght-normal-.*\.woff2$/,
+]
+  .map((re) => assets.find((f) => re.test(f)))
+  .filter(Boolean)
+  .map((f) => `<link rel="preload" as="font" type="font/woff2" href="/assets/${f}" crossorigin />`)
+  .join('\n    ');
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -84,7 +105,7 @@ async function page(route, url, outFile) {
     .replace(/(<meta property="og:title" content=")[^"]*"/, `$1${esc(route.title)}"`)
     .replace(/(<meta property="og:description" content=")[^"]*"/, `$1${esc(route.description)}"`)
     .replace(/(<meta property="og:url" content=")[^"]*"/, `$1${canonical}"`)
-    .replace('<!--preload-->', preloadFor(appHtml))
+    .replace('<!--preload-->', [fontPreloads, preloadFor(appHtml)].join('\n    '))
     .replace('<!--jsonld-->', ld)
     .replace('<!--app-->', appHtml);
   if (route.path === '*') html = html.replace('<meta name="viewport"', '<meta name="robots" content="noindex" />\n    <meta name="viewport"');

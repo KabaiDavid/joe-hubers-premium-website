@@ -103,7 +103,7 @@ export const FOOTER_NAV = [
       { to: '/farm', label: 'Farm & Barnyard' },
       { to: '/market', label: 'Farm Market' },
       { href: SITE.shop, label: 'Shop online' },
-      { to: '/visit', label: 'Hours & directions' },
+      { to: '/contact', label: 'Hours & directions' },
     ],
   },
 ] as const;

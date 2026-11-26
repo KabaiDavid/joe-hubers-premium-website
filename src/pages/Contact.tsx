@@ -16,10 +16,10 @@ export default function Contact() {
     <div className="tone-ivory">
       <header className="wrap page-head">
         <Kicker>Visit &amp; contact</Kicker>
-        <Words as="h1" className="display">
+        <h1 className="display hero-title">
           Getting here is <em>part of the fun.</em>
-        </Words>
-        <p className="lead" data-reveal="">
+        </h1>
+        <p className="lead hero-in" style={{ ['--h' as string]: 2 }}>
           Serving you is our pleasure. We’re in Starlight, Indiana, just 22 miles north of downtown Louisville, Kentucky.
         </p>
       </header>

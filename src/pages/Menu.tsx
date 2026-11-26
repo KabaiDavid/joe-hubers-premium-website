@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router';
 import { MENU } from '../data/menu';
 import { SITE } from '../data/site';
 import { Img } from '../components/Img';
-import { Words } from '../components/Chrome';
 import { Hours, Kicker } from '../components/Blocks';
 import { TLink } from '../components/TLink';
 import { Arrow, ArrowUpRight } from '../components/Icons';
@@ -37,13 +36,13 @@ export default function Menu() {
     <div className="menu-page tone-ivory">
       <header className="wrap page-head">
         <Kicker>The menu</Kicker>
-        <Words as="h1" className="display">
+        <h1 className="display hero-title">
           Home cooking, <em>made from scratch.</em>
-        </Words>
-        <p className="lead" data-reveal="">
+        </h1>
+        <p className="lead hero-in" style={{ ['--h' as string]: 2 }}>
           Dine in Thursday through Sunday, carry out with Joe’s To Go, or order online and pick up.
         </p>
-        <div className="btn-row" data-reveal="" style={{ marginTop: '2rem' }}>
+        <div className="btn-row hero-in" style={{ marginTop: '2rem', ['--h' as string]: 3 }}>
           <a href={SITE.orderOnline} className="btn btn--brass" target="_blank" rel="noopener">
             Order online <ArrowUpRight />
           </a>

@@ -68,7 +68,7 @@ export function Header({ lightPage }: { lightPage: boolean }) {
     <>
       <header className={cls}>
         <div className="wrap header__inner">
-          <TLink to="/" className="wordmark" aria-label="Joe Huber's Family Farm & Restaurant — home">
+          <TLink to="/" className="wordmark">
             <span className="wordmark__name">Joe Huber’s</span>
             <span className="wordmark__sub">Family Farm &amp; Restaurant</span>
           </TLink>
@@ -230,9 +230,11 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer__word" aria-hidden="true">
-          Joe Huber’s
-        </div>
+        <svg className="footer__word" viewBox="0 0 1000 190" aria-hidden="true" focusable="false">
+          <text x="500" y="160" textAnchor="middle">
+            Joe Huber’s
+          </text>
+        </svg>
         <div className="footer__bottom">
           <span>© {new Date().getFullYear()} Joe Huber’s Family Farm &amp; Restaurant · On the farm since 1926 · Restaurant since 1983</span>
           <span>
