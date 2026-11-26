@@ -797,3 +797,12 @@
 @media (min-width: 900px) {
   .split .mosaic { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* Large screens: give the hero headline room instead of wrapping to four lines */
+.hero .mega { font-size: clamp(3.3rem, 10vw, 9.4rem); max-width: none; }
+@media (min-width: 1600px) {
+  .hero .wrap { max-width: 1760px; }
+}
+@media (max-width: 899px) {
+  .hero .mega em { color: #e8d4a8; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
+}
